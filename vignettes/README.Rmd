@@ -34,11 +34,6 @@ if("GitHubRepo" %in% colnames(x_dcf)) {
 
 ## High Dimensional Linear Multiple-Response Regression
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/lsgl)](https://cran.r-project.org/package=lsgl)
-[![Travis-CI Build Status](https://travis-ci.org/vincent-dk/lsgl.svg?branch=`r pkg_branch`)](https://travis-ci.org/vincent-dk/lsgl)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/vincent-dk/lsgl?branch=`r pkg_branch`&svg=true)](https://ci.appveyor.com/project/vincent-dk/lsgl)
-[![Coverage Status](https://codecov.io/github/vincent-dk/lsgl/coverage.svg?branch=`r pkg_branch`)](https://codecov.io/github/vincent-dk/lsgl?branch=`r pkg_branch`)
-
 Linear multiple-response regression with feature and parameter selection using sparse group lasso. Suitable for high dimensional problems.
 
 This is the **`r pkg_version_type`** of R package **lsgl version `r pkg_version`**.
@@ -47,7 +42,7 @@ This is the **`r pkg_version_type`** of R package **lsgl version `r pkg_version`
 
 This package implements procedures for working with linear multiple-response regression models using sparse group lasso. This includes procedures for fitting and cross validating sparse models in a high dimensional setup. See the [Quick Start (Predict airline ticket prices for multiple airlines)](quick-start.md) for an example of a traditional workflow consisting of 1) model selection and assessment using cross validation, 2) estimation of a final model and 3) using the selected model for carrying out predictions on new data.  
 
-![The multiple lasso estimator and the least squares estimate](https://raw.github.com/vincent-dk/lsgl/master/fig1.png)
+![The multiple lasso estimator and the least squares estimate](https://raw.github.com/nielsrhansen/lsgl/master/fig1.png)
 
 > Comparison of the multiple lasso estimator and least squares estimate on simulated data with 50 samples, 50 features and 25 groups. See the lsgl example in the package, i.e. run example(lsgl).
 
@@ -61,11 +56,7 @@ This package implements procedures for working with linear multiple-response reg
 * Supports sample weighting
 * Supports individual weighting of the group and parameter penalties
 
-The penalized maximum likelihood estimator for  the linear multiple-response regression model is computed using a coordinate gradient descent algorithm via the [sglOptim](https://github.com/vincent-dk/sglOptim) optimizer. Use of parallel computing for cross validation and subsampling is supported through the [foreach](https://cran.r-project.org/package=foreach) and [doParallel](https://cran.r-project.org/package=doParallel) packages.
-
-### Status
-
-The package is under active development with releases to CRAN about ones or twice each year.
+The penalized maximum likelihood estimator for  the linear multiple-response regression model is computed using a coordinate gradient descent algorithm via the [sglOptim](https://github.com/nielsrhansen/sglOptim) optimizer. Use of parallel computing for cross validation and subsampling is supported through the [foreach](https://cran.r-project.org/package=foreach) and [doParallel](https://cran.r-project.org/package=doParallel) packages.
 
 ### Installation
 
