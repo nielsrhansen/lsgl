@@ -1,0 +1,130 @@
+---
+title: "README"
+author: "Martin Vincent"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Quick Start}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+params:
+  pkg: lsgl
+---
+
+```{r, echo = FALSE}
+set.seed(150)
+
+pkg_version <- packageVersion(params$pkg)
+
+x_dcf <- read.dcf(file = file.path(getwd(), "..", "DESCRIPTION"))
+
+if("GitHubRepo" %in% colnames(x_dcf)) {
+  pkg_branch <- x_dcf[1,"GitHubRepo"]
+
+  pkg_version_type <- switch(pkg_branch,
+    release = "release",
+    master = "release candidate",
+    develop = "development version"
+  )
+} else {
+  pkg_branch <- "release"
+  pkg_version_type <- "release"
+}
+```
+
+## High Dimensional Linear Multiple-Response Regression
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/lsgl)](https://cran.r-project.org/package=lsgl)
+[![Travis-CI Build Status](https://travis-ci.org/vincent-dk/lsgl.svg?branch=`r pkg_branch`)](https://travis-ci.org/vincent-dk/lsgl)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/vincent-dk/lsgl?branch=`r pkg_branch`&svg=true)](https://ci.appveyor.com/project/vincent-dk/lsgl)
+[![Coverage Status](https://codecov.io/github/vincent-dk/lsgl/coverage.svg?branch=`r pkg_branch`)](https://codecov.io/github/vincent-dk/lsgl?branch=`r pkg_branch`)
+
+Linear multiple-response regression with feature and parameter selection using sparse group lasso. Suitable for high dimensional problems.
+
+This is the **`r pkg_version_type`** of R package **lsgl version `r pkg_version`**.
+
+### R-package Overview
+
+This package implements procedures for working with linear multiple-response regression models using sparse group lasso. This includes procedures for fitting and cross validating sparse models in a high dimensional setup. See the [Quick Start (Predict airline ticket prices for multiple airlines)](quick-start.md) for an example of a traditional workflow consisting of 1) model selection and assessment using cross validation, 2) estimation of a final model and 3) using the selected model for carrying out predictions on new data.  
+
+![The multiple lasso estimator and the least squares estimate](https://raw.github.com/vincent-dk/lsgl/master/fig1.png)
+
+> Comparison of the multiple lasso estimator and least squares estimate on simulated data with 50 samples, 50 features and 25 groups. See the lsgl example in the package, i.e. run example(lsgl).
+
+**Package highlights:**
+
+* Feature and parameter selection
+* Fast coordinate gradient descent algorithm
+* Suitable for high dimensional multiclass classification
+* Support for lasso, group lasso and sparse group lasso
+* Supports custom grouping of features
+* Supports sample weighting
+* Supports individual weighting of the group and parameter penalties
+
+The penalized maximum likelihood estimator for  the linear multiple-response regression model is computed using a coordinate gradient descent algorithm via the [sglOptim](https://github.com/vincent-dk/sglOptim) optimizer. Use of parallel computing for cross validation and subsampling is supported through the [foreach](https://cran.r-project.org/package=foreach) and [doParallel](https://cran.r-project.org/package=doParallel) packages.
+
+### Status
+
+The package is under active development with releases to CRAN about ones or twice each year.
+
+### Installation
+
+Get the released version from CRAN:
+
+```{r eval = FALSE}
+install.packages("lsgl")
+```
+Install the release candidate from GitHub:
+
+```{r eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("vincent-dk/sglOptim")
+devtools::install_github("vincent-dk/lsgl")
+```
+
+Install the development version from GitHub:
+
+```{r eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("vincent-dk/sglOptim", ref = "develop")
+devtools::install_github("vincent-dk/lsgl", ref = "develop")
+```
+
+### Minimal Example
+```{r message = FALSE}
+library(lsgl)
+
+# Load sone data
+data(AirlineTicketPrices)
+
+# Setup 2 parallel units
+cl <- makeCluster(2)
+registerDoParallel(cl)
+
+# Do 10-fold cross validation on 100 models with increasing complexity, using the 2 parallel units
+fit.cv <- lsgl::cv(
+  x = X,
+  y = Y,
+  alpha = 0.5,
+  lambda = 0.01,
+  use_parallel = TRUE
+)
+
+stopCluster(cl)
+
+# Print information about models
+# and cross validation errors
+fit.cv
+```
+
+### Documentation
+* R package documentation
+* [Quick Start (Predict airline ticket prices for multiple airlines)](quick-start.md)
+
+### Author
+
+Martin Vincent
+
+### License
+
+GPL (>=2)
