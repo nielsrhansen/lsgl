@@ -12,38 +12,23 @@ params:
 
 ```{r, echo = FALSE}
 set.seed(150)
-
 pkg_version <- packageVersion(params$pkg)
-
-x_dcf <- read.dcf(file = file.path(getwd(), "..", "DESCRIPTION"))
-
-if("GitHubRepo" %in% colnames(x_dcf)) {
-  pkg_branch <- x_dcf[1,"GitHubRepo"]
-
-  pkg_version_type <- switch(pkg_branch,
-    release = "release",
-    master = "release candidate",
-    develop = "development version"
-  )
-} else {
-  pkg_branch <- "release"
-  pkg_version_type <- "release"
-}
 ```
 
-## High Dimensional Linear Multiple-Response Regression
+## Multivariate Linear Sparse Group Lasso Regression
 
-Linear multiple-response regression with feature and parameter selection using sparse group lasso. Suitable for high dimensional problems.
+Multivariate Linear regression with feature and parameter selection using 
+sparse group lasso. Suitable for high dimensional problems.
 
-This is the **`r pkg_version_type`** of R package **lsgl version `r pkg_version`**.
+This is the R package lsgl version **`r pkg_version`**.
 
 ### R-package Overview
 
-This package implements procedures for working with linear multiple-response regression models using sparse group lasso. This includes procedures for fitting and cross validating sparse models in a high dimensional setup. See the [Quick Start (Predict airline ticket prices for multiple airlines)](quick-start.md) for an example of a traditional workflow consisting of 1) model selection and assessment using cross validation, 2) estimation of a final model and 3) using the selected model for carrying out predictions on new data.  
+This package implements procedures for working with multivariate linear regression models using sparse group lasso. This includes procedures for fitting and cross validating sparse models in a high dimensional setup. See the [Quick Start (Predict airline ticket prices for multiple airlines)](quick-start.md) for an example of a workflow consisting of 1) model selection and assessment using cross validation, 2) estimation of a final model and 3) using the selected model for carrying out predictions on new data.  
 
 ![The multiple lasso estimator and the least squares estimate](https://raw.github.com/nielsrhansen/lsgl/master/fig1.png)
 
-> Comparison of the multiple lasso estimator and least squares estimate on simulated data with 50 samples, 50 features and 25 groups. See the lsgl example in the package, i.e. run example(lsgl).
+> Comparison of the multivariate lasso estimate and least squares estimate on simulated data with 50 samples, 50 features and a 25-dimensional response. See `?lsgl::fit` for details.
 
 **Package highlights:**
 
@@ -64,21 +49,17 @@ Get the released version from CRAN:
 ```{r eval = FALSE}
 install.packages("lsgl")
 ```
-Install the release candidate from GitHub:
+
+Install the version from GitHub:
 
 ```{r eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("vincent-dk/sglOptim")
-devtools::install_github("vincent-dk/lsgl")
+devtools::install_github("nielsrhansen/sglOptim", build_vignettes = TRUE)
+devtools::install_github("nielsrhansen/lsgl", build_vignettes = TRUE)
 ```
 
-Install the development version from GitHub:
-
-```{r eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("vincent-dk/sglOptim", ref = "develop")
-devtools::install_github("vincent-dk/lsgl", ref = "develop")
-```
+If you don't want to build the vignettes when installing, just remove the 
+`build_vignettes = TRUE` argument.
 
 ### Minimal Example
 ```{r message = FALSE}
@@ -113,7 +94,7 @@ fit.cv
 
 ### Author
 
-Martin Vincent
+Martin Vincent wrote the package. Niels Richard Hansen is the current maintainer.
 
 ### License
 

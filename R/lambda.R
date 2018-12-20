@@ -82,6 +82,148 @@ lambda <- function(x, y,
 	return(lambda)
 }
 
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_w_xd_yd_sgl_lambda_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  d,
+  lambda.min,
+  lambda.min.rel,
+  algorithm.config) {
+  
+  .Call(lsgl_w_xd_yd_sgl_lambda, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        d,
+        lambda.min,
+        lambda.min.rel,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_yd_sgl_lambda_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  d,
+  lambda.min,
+  lambda.min.rel,
+  algorithm.config) {
+  
+  .Call(lsgl_xd_yd_sgl_lambda, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        d,
+        lambda.min,
+        lambda.min.rel,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_yd_sgl_lambda_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  d,
+  lambda.min,
+  lambda.min.rel,
+  algorithm.config) {
+  
+  .Call(lsgl_xs_yd_sgl_lambda, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        d,
+        lambda.min,
+        lambda.min.rel,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_ys_sgl_lambda_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  d,
+  lambda.min,
+  lambda.min.rel,
+  algorithm.config) {
+  
+  .Call(lsgl_xd_ys_sgl_lambda, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        d,
+        lambda.min,
+        lambda.min.rel,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_ys_sgl_lambda_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  d,
+  lambda.min,
+  lambda.min.rel,
+  algorithm.config) {
+  
+  .Call(lsgl_xs_ys_sgl_lambda, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        d,
+        lambda.min,
+        lambda.min.rel,
+        algorithm.config
+  )
+}
+
+
 #' Deprecated lambda function
 #'
 #' @keywords internal

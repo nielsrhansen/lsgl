@@ -1,4 +1,5 @@
-## Run from package root directory
+## Run from package root directory. The script builds the 
+## vignettes and includes the md-file for publication on GitHub.
 
 vignettes.path <- file.path(getwd(), "vignettes")
 vignettes.files <- list.files(vignettes.path, pattern="*.Rmd")
@@ -9,7 +10,7 @@ for(file in vignettes.files) {
   
   rmarkdown::render(
     input = input_file,
-    output_format = rmarkdown::md_document(variant = "gfm")
+    output_format = rmarkdown::md_document(variant = "markdown_github")
   )
   
 }
@@ -22,7 +23,7 @@ files_to_move <- files_to_move[ ! files_to_move %in% vignettes.files ]
 for(file in files_to_move) {
   
   from <- file.path(vignettes.path, file)
-  to <- file.path(script.path, file)
+  to <- file.path(getwd(), file)
   
   unlink(to, recursive = TRUE)
   file.rename(from, to)

@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{News for Package 'lsgl'}
 
+
+\section{Changes in lsgl version 1.3.7 (2018-12-20)}{
+\itemize{
+  \item Fixed interface to sglOptim that was broken due to changes in sglOptim.
+}
+}
+
 \section{Changes in lsgl version 1.3.6 (2017-03-03)}{
 \itemize{
   \item Bug fixes

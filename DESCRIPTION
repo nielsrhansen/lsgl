@@ -3,7 +3,7 @@ Type: Package
 Title: Multivariate Linear Sparse Group Lasso
 Version: 1.3.7
 Date: 2018-10-18
-Author@R: c(
+Authors@R: c(
         person("Martin", "Vincent", role = "aut"),
         person("Niels", "Richard Hansen", email = "niels.r.hansen@math.ku.dk", role = c("ctb", "cre"))
         )
@@ -24,4 +24,5 @@ LinkingTo: sglOptim, Rcpp, RcppProgress, RcppArmadillo, BH
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
+Encoding: UTF-8
 NeedsCompilation: yes

@@ -175,6 +175,138 @@ fit <- function(x, y,
 	return(res)
 }
 
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_w_xd_yd_sgl_fit_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  idx,
+  algorithm.config) {
+  
+  .Call(lsgl_w_xd_yd_sgl_fit, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        idx,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_yd_sgl_fit_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  idx,
+  algorithm.config) {
+  
+  .Call(lsgl_xd_yd_sgl_fit, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        idx,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_yd_sgl_fit_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  idx,
+  algorithm.config) {
+  
+  .Call(lsgl_xs_yd_sgl_fit, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        idx,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_ys_sgl_fit_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  idx,
+  algorithm.config) {
+  
+  .Call(lsgl_xd_ys_sgl_fit, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        idx,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_ys_sgl_fit_R <- function(
+  data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  idx,
+  algorithm.config) {
+  
+  .Call(lsgl_xs_ys_sgl_fit, PACKAGE = "lsgl",
+        data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        idx,
+        algorithm.config
+  )
+}
+
+
+
 #' Deprecated fit function
 #'
 #' @keywords internal
@@ -208,3 +340,4 @@ lsgl <- function(
     algorithm.config = algorithm.config
   )
 }
+

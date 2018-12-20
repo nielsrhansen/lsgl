@@ -169,6 +169,138 @@ cv <- function(x, y,
 	return(res)
 }
 
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_w_xd_yd_sgl_subsampling_R <- function(
+  data,
+  test_data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  algorithm.config) {
+  
+  .Call(lsgl_w_xd_yd_sgl_subsampling, PACKAGE = "lsgl",
+        data,
+        test_data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_yd_sgl_subsampling_R <- function(
+  data,
+  test_data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  algorithm.config) {
+  
+  .Call(lsgl_xd_yd_sgl_subsampling, PACKAGE = "lsgl",
+        data,
+        test_data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_yd_sgl_subsampling_R <- function(
+  data,
+  test_data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  algorithm.config) {
+  
+  .Call(lsgl_xs_yd_sgl_subsampling, PACKAGE = "lsgl",
+        data,
+        test_data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_ys_sgl_subsampling_R <- function(
+  data,
+  test_data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  algorithm.config) {
+  
+  .Call(lsgl_xd_ys_sgl_subsampling, PACKAGE = "lsgl",
+        data,
+        test_data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        algorithm.config
+  )
+}
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_ys_sgl_subsampling_R <- function(
+  data,
+  test_data,
+  block_dim,
+  groupWeights,
+  parameterWeights,
+  alpha,
+  lambda,
+  algorithm.config) {
+  
+  .Call(lsgl_xs_ys_sgl_subsampling, PACKAGE = "lsgl",
+        data,
+        test_data,
+        block_dim,
+        groupWeights,
+        parameterWeights,
+        alpha,
+        lambda,
+        algorithm.config
+  )
+}
+
+
 #' Deprecated cv function
 #'
 #' @keywords internal

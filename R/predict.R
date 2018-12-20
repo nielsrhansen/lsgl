@@ -111,3 +111,40 @@ predict.lsgl <- function(object, x, sparse.data = is(x, "sparseMatrix"), ...)
 
 	return(res)
 }
+
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_yd_sgl_predict_R <- function(data, beta) {
+  .Call(lsgl_xd_yd_sgl_predict, PACKAGE = "lsgl", data, beta)
+}
+
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_yd_sgl_predict_R <- function(data, beta) {
+  .Call(lsgl_xs_yd_sgl_predict, PACKAGE = "lsgl", data, beta)
+}
+
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xd_ys_sgl_predict_R <- function(data, beta) {
+  .Call(lsgl_xd_ys_sgl_predict, PACKAGE = "lsgl", data, beta)
+}
+
+
+#' C interface
+#'
+#' @keywords internal
+#' @export
+lsgl_xs_ys_sgl_predict_R <- function(data, beta) {
+  .Call(lsgl_xs_ys_sgl_predict, PACKAGE = "lsgl", data, beta)
+}
+
