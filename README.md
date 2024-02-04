@@ -57,7 +57,7 @@ fit.cv <- lsgl::cv(
   x = X,
   y = Y,
   alpha = 0.5,
-  lambda = 0.01,
+  lambda = 0.001,
   use_parallel = TRUE
 )
 ```

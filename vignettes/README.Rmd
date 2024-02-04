@@ -3,7 +3,7 @@ title: "README"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Quick Start}
+  %\VignetteIndexEntry{README}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 params:
@@ -77,7 +77,7 @@ fit.cv <- lsgl::cv(
   x = X,
   y = Y,
   alpha = 0.5,
-  lambda = 0.01,
+  lambda = 0.001,
   use_parallel = TRUE
 )
 
