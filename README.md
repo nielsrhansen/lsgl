@@ -27,12 +27,15 @@ The penalized maximum likelihood estimator for the linear multiple-response regr
 
 ### Installation
 
-Install the version from GitHub:
+Installation from souce requires installation of the necessary compiler tools 
+for [Mac](https://mac.r-project.org/tools/) or [Windows](https://cran.r-project.org/bin/windows/Rtools/history.html).
+
+Install the package from GitHub:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("nielsrhansen/sglOptim", build_vignettes = TRUE)
-devtools::install_github("nielsrhansen/lsgl", build_vignettes = TRUE)
+# install.packages("remotes") # uncomment if remotes is not already installed
+remotes::install_github("nielsrhansen/sglOptim", build_vignettes = TRUE)
+remotes::install_github("nielsrhansen/lsgl", build_vignettes = TRUE)
 ```
 
 If you don't want to build the vignettes when installing, just remove the `build_vignettes = TRUE` argument.
