@@ -79,7 +79,7 @@ predict.lsgl <- function(object, x, sparse.data = is(x, "sparseMatrix"), ...)
 
 	if(object$intercept){
 		# add intercept
-		x <- cBind(Intercept = rep(1, nrow(x)), x)
+		x <- cbind(Intercept = rep(1, nrow(x)), x)
 	}
 
 	#Check dimension of x

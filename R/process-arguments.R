@@ -75,7 +75,7 @@ if( is.null(parameterWeights) ) {
 
 # add intercept
 if(intercept) {
-  x <- cBind(Intercept = rep(1, nrow(x)), x)
+  x <- cbind(Intercept = rep(1, nrow(x)), x)
   groupWeights <- c(0, groupWeights)
   parameterWeights <- cbind(rep(0, ncol(y)), parameterWeights)
   grouping <- factor(c("Intercept", as.character(grouping)), levels = c("Intercept", levels(grouping)))
